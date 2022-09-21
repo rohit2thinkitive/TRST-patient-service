@@ -1,22 +1,30 @@
 package com.service.patientservice.controller;
 
+import com.service.patientservice.entities.Patient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
-import java.util.Map;
 
 @RestController
 @RequestMapping("/trst/patient")
 public class PatientController extends AbstractController{
 
-    // api to get list of patient
-
+    //------------------------GET  api to get list of patient
     @GetMapping("")
-    public ResponseEntity<Map> getPatients(){
+    public ResponseEntity<List> getPatients(){
         return new ResponseEntity(patientServiceFacade.getPatients(), HttpStatus.OK);
 
     }
+
+
+    //-----------------------GET api to save the patient
+
+    @PostMapping("")
+    public ResponseEntity<String> addPatient(@RequestBody Patient patient){
+
+        return new ResponseEntity(patientServiceFacade.addPatient(patient), HttpStatus.CREATED);
+    }
+
 }

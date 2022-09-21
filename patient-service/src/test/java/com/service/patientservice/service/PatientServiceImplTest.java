@@ -1,12 +1,16 @@
 package com.service.patientservice.service;
 
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
+import com.service.patientservice.entities.Patient;
+import java.util.List;
 
 class PatientServiceImplTest implements PatientService{
     @Override
-    public Map getPatients() {
+    public List getPatients() {
+        return null;
+    }
+
+    @Override
+    public String addPatient(Patient p) {
         return null;
     }
 }

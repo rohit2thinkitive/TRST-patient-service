@@ -1,19 +1,23 @@
 package com.service.patientservice.service;
 
+import com.service.patientservice.entities.Patient;
+import com.service.patientservice.facade.interf.PatientDaoFacade;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
-import java.util.HashMap;
-import java.util.Map;
 @Service
 public class PatientServiceImpl implements PatientService{
+
+    @Autowired
+    PatientDaoFacade patientDaoFacade;
     @Override
-    public Map getPatients() {
-        return new HashMap<String,Object>(){{
-            put("patient_id","sdj87263724jdsdsj");
-            put("Patient_name", "FirstName + LastName");
-            put("contact",988990228);
-            put("gender","male");
-            put("provider_name", "assigned Provider");
-        }};
+    public List getPatients() {
+        return patientDaoFacade.getPatients();
+    }
+
+    @Override
+    public String addPatient(Patient p) {
+        return patientDaoFacade.addPatient(p);
     }
 }

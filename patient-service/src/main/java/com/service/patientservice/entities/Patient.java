@@ -4,12 +4,10 @@ package com.service.patientservice.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Timestamp;
-
-import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
@@ -17,16 +15,28 @@ import java.util.UUID;
 @Data
 public class Patient {
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     private String firstName;
     private String lastName;
     private String middleName;
     private String gender;
     private String maritalStatus;
     private String emailId;
-    private String primaryNo;
+    private String primaryNumber;
     private String secondaryNumber;
     private String bio;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+
+    public Patient(String firstName, String lastName, String middleName, String gender, String maritalStatus, String emailId, String primaryNumber, String secondaryNumber, String bio) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.gender = gender;
+        this.maritalStatus = maritalStatus;
+        this.emailId = emailId;
+        this.primaryNumber = primaryNumber;
+        this.secondaryNumber = secondaryNumber;
+        this.bio = bio;
+
+    }
 }

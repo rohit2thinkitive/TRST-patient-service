@@ -1,9 +1,12 @@
 package com.service.patientservice.service;
 
+import com.service.patientservice.entities.Patient;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
-import java.util.Map;
 @Service
 public interface PatientService {
-    Map getPatients();
+    List getPatients();
+
+    String addPatient(Patient p);
 }
