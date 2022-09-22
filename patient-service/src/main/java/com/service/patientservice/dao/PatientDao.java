@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 @Repository
-public interface PatientDao extends CrudRepository<Patient, UUID> {
+public interface PatientDao extends CrudRepository<Patient, String> {
 }
